@@ -1,0 +1,155 @@
+{
+  "modelo_escolhido": "Gradient Boosting (variação, perda absoluta)",
+  "baseline_referencia": "Ingênuo (repete o mês atual)",
+  "amostras": {
+    "treino": 527054,
+    "validacao": 18917,
+    "teste": 38117,
+    "monitoramento": 6728,
+    "producao": 1587
+  },
+  "validacao": [
+    {
+      "modelo": "Gradient Boosting (variação, perda absoluta)",
+      "tipo": "modelo",
+      "WAPE": 0.12318429833279951,
+      "MAE": 710.9080790594898,
+      "RMSE": 1389.1377227376886,
+      "vies": -0.00908100068080545
+    },
+    {
+      "modelo": "Gradient Boosting (variação, perda quadrática)",
+      "tipo": "modelo",
+      "WAPE": 0.12484567544790999,
+      "MAE": 720.4960414011327,
+      "RMSE": 1390.4777911526612,
+      "vies": -0.01170390655403228
+    },
+    {
+      "modelo": "Gradient Boosting (Poisson)",
+      "tipo": "modelo",
+      "WAPE": 0.1283619400871681,
+      "MAE": 740.7887327099422,
+      "RMSE": 1494.7511966329462,
+      "vies": -0.009913384212958508
+    },
+    {
+      "modelo": "Gradient Boosting (log)",
+      "tipo": "modelo",
+      "WAPE": 0.14587103134163906,
+      "MAE": 841.8353319783408,
+      "RMSE": 1579.1793386172214,
+      "vies": -0.06211804406452999
+    },
+    {
+      "modelo": "Ingênuo (repete o mês atual)",
+      "tipo": "baseline",
+      "WAPE": 0.14764813014118705,
+      "MAE": 852.0911349579743,
+      "RMSE": 1630.4857354381397,
+      "vies": -0.0006698068434759857
+    },
+    {
+      "modelo": "Ingênuo com ajuste sazonal",
+      "tipo": "baseline",
+      "WAPE": 0.177893514517852,
+      "MAE": 1026.6400701602597,
+      "RMSE": 2000.1049779762786,
+      "vies": 0.02231653155560314
+    },
+    {
+      "modelo": "Sazonal x crescimento recente",
+      "tipo": "baseline",
+      "WAPE": 0.20615125899408845,
+      "MAE": 1189.7181500457564,
+      "RMSE": 2196.1964359964277,
+      "vies": 0.02162098256637271
+    },
+    {
+      "modelo": "Sazonal (repete o mesmo mês do ano anterior)",
+      "tipo": "baseline",
+      "WAPE": 0.24922923299257246,
+      "MAE": 1438.3251572659512,
+      "RMSE": 2634.40797609669,
+      "vies": -0.10237825030448347
+    },
+    {
+      "modelo": "Ridge (log)",
+      "tipo": "modelo",
+      "WAPE": 0.27793419702624317,
+      "MAE": 1603.9841829440238,
+      "RMSE": 3574.3112023340595,
+      "vies": 0.06250398803184215
+    }
+  ],
+  "covid": {
+    "WAPE_com_covid": 0.12318429833279951,
+    "WAPE_sem_covid": 0.12268113936936412,
+    "remover": true,
+    "decidido_por": "validação"
+  },
+  "teste": [
+    {
+      "modelo": "Gradient Boosting (variação, perda absoluta)",
+      "tipo": "modelo",
+      "WAPE": 0.11093382102405434,
+      "MAE": 701.0673630836508,
+      "RMSE": 1467.1916366510923,
+      "vies": -0.00585786310952826
+    },
+    {
+      "modelo": "Ingênuo (repete o mês atual)",
+      "tipo": "baseline",
+      "WAPE": 0.13306292093668157,
+      "MAE": 840.9164152477897,
+      "RMSE": 1690.9825464739342,
+      "vies": -0.0013265064986215046
+    },
+    {
+      "modelo": "Ingênuo com ajuste sazonal",
+      "tipo": "baseline",
+      "WAPE": 0.162589651553644,
+      "MAE": 1027.5162004442864,
+      "RMSE": 2187.4845319447804,
+      "vies": 0.017548657116953137
+    },
+    {
+      "modelo": "Sazonal x crescimento recente",
+      "tipo": "baseline",
+      "WAPE": 0.1864964643192454,
+      "MAE": 1178.5998468074683,
+      "RMSE": 2424.508985593915,
+      "vies": 0.013345763663949484
+    },
+    {
+      "modelo": "Sazonal (repete o mesmo mês do ano anterior)",
+      "tipo": "baseline",
+      "WAPE": 0.22281533972531797,
+      "MAE": 1408.1238817325602,
+      "RMSE": 2720.101498874392,
+      "vies": -0.06026602653415675
+    }
+  ],
+  "reducao_erro_teste": 0.16630553242670387,
+  "monitoramento": {
+    "inicio": "2026-01",
+    "fim": "2026-04",
+    "amostras": 6728,
+    "modelo": {
+      "WAPE": 0.12549974531307703,
+      "MAE": 813.0401018146506,
+      "RMSE": 1490.4361277653948,
+      "vies": 0.018620025618189325
+    },
+    "baseline": {
+      "WAPE": 0.1729464637147585,
+      "MAE": 1120.419887039239,
+      "RMSE": 1933.8002880219112,
+      "vies": 0.033821308151649174
+    }
+  },
+  "proxima_previsao": {
+    "mes": "2026-05",
+    "total": 10461212
+  }
+}

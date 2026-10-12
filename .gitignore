@@ -1,0 +1,54 @@
+# Ambientes virtuais
+.venv/
+venv/
+env/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Build e distribuição
+build/
+dist/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Testes, lint e cobertura
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+coverage.json
+junit.xml
+
+# Credenciais e configurações locais
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Dados brutos da ANAC e caches gerados
+data/raw/*
+!data/raw/.gitkeep
+!data/raw/README.md
+data/interim/
+
+# Logs
+*.log
+
+# Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+Desktop.ini

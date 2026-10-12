@@ -1,0 +1,72 @@
+{
+  "treinado_ate": "2025-12",
+  "amostras_treino": 562141,
+  "covid_removida_do_treino": true,
+  "metricas_teste": {
+    "WAPE": 0.11093382102405434,
+    "MAE": 701.0673630836508,
+    "RMSE": 1467.1916366510923,
+    "vies": -0.00585786310952826
+  },
+  "baseline_referencia": "Ingênuo (repete o mês atual)",
+  "metricas_monitoramento": {
+    "WAPE": 0.12549974531307703,
+    "MAE": 813.0401018146506,
+    "RMSE": 1490.4361277653948,
+    "vies": 0.018620025618189325
+  },
+  "modelo": "Gradient Boosting (variação, perda absoluta)",
+  "spec": {
+    "tipo": "hgb",
+    "alvo": "variacao",
+    "params": {
+      "loss": "absolute_error",
+      "learning_rate": 0.05,
+      "max_iter": 500,
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 40
+    }
+  },
+  "features": [
+    "mes_alvo",
+    "covid",
+    "pax_lag0",
+    "pax_lag1",
+    "pax_lag2",
+    "pax_lag11",
+    "pax_lag12",
+    "pax_lag23",
+    "pax_media_3m",
+    "pax_media_12m",
+    "crescimento_aa",
+    "meses_ativos_12m",
+    "idade_meses",
+    "rel_pax_lag1",
+    "rel_pax_lag2",
+    "rel_pax_lag11",
+    "rel_pax_lag12",
+    "rel_pax_lag23",
+    "rel_pax_media_3m",
+    "rel_pax_media_12m",
+    "rel_assentos_lag0",
+    "rel_assentos_lag11",
+    "variacao_sazonal_1a",
+    "variacao_sazonal_2a",
+    "assentos_lag0",
+    "decolagens_lag0",
+    "assentos_lag11",
+    "ocupacao_lag0",
+    "distancia_por_voo_km",
+    "mercado_lag0",
+    "mercado_crescimento_aa",
+    "empresa_sigla",
+    "empresa_nacionalidade",
+    "natureza",
+    "aeroporto_de_origem_sigla",
+    "aeroporto_de_destino_sigla",
+    "aeroporto_de_origem_regiao",
+    "aeroporto_de_destino_regiao"
+  ],
+  "versao_pacote": "1.0.0",
+  "salvo_em": "2026-10-10T20:31:59+00:00"
+}

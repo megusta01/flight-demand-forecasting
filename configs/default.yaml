@@ -1,0 +1,59 @@
+# Configuração padrão do pipeline.
+# Caminhos relativos são resolvidos a partir da raiz do projeto.
+# Para um experimento, copie este arquivo e rode: anac-demanda --config configs/meu_experimento.yaml tudo
+
+semente: 42
+
+dados:
+  dir_bruto: data/raw            # onde fica o CSV da ANAC
+  dir_cache: data/interim        # caches Parquet (gerados automaticamente)
+  ano_inicial: 2000
+  grupo_de_voo: REGULAR          # foco do modelo: voos regulares (96% dos passageiros)
+
+# Divisão temporal pelo MÊS PREVISTO (formato AAAA-MM).
+# Meses depois do fim do teste formam o período de monitoramento (dados que o modelo final nunca viu).
+periodos:
+  fim_treino: "2022-12"
+  validacao: ["2023-01", "2023-12"]
+  teste: ["2024-01", "2025-12"]
+
+covid:
+  inicio: "2020-03"
+  fim: "2021-12"
+  # "auto": a validação decide se os meses da COVID entram no treino; true/false força a escolha.
+  remover_do_treino: auto
+
+features:
+  min_ocorrencias_categoria: 500   # categorias mais raras viram "OUTROS"
+  max_categorias: 200              # HistGradientBoosting aceita até 255 categorias por coluna
+
+# Modelos comparados na validação. Para adicionar um modelo, acrescente um item aqui.
+#   tipo: hgb (HistGradientBoostingRegressor) | ridge
+#   alvo: variacao (pax[t+1] / pax[t], peso = pax[t]) | log (log1p de pax[t+1]) | contagem (pax[t+1])
+modelos:
+  - nome: Ridge (log)
+    tipo: ridge
+    alvo: log
+    params: {alpha: 1.0}
+  - nome: Gradient Boosting (log)
+    tipo: hgb
+    alvo: log
+    params: {loss: squared_error, learning_rate: 0.05, max_iter: 600, max_leaf_nodes: 63, min_samples_leaf: 40}
+  - nome: Gradient Boosting (Poisson)
+    tipo: hgb
+    alvo: contagem
+    params: {loss: poisson, learning_rate: 0.05, max_iter: 600, max_leaf_nodes: 63, min_samples_leaf: 40}
+  - nome: Gradient Boosting (variação, perda quadrática)
+    tipo: hgb
+    alvo: variacao
+    params: {loss: squared_error, learning_rate: 0.05, max_iter: 500, max_leaf_nodes: 31, min_samples_leaf: 40}
+  - nome: Gradient Boosting (variação, perda absoluta)
+    tipo: hgb
+    alvo: variacao
+    params: {loss: absolute_error, learning_rate: 0.05, max_iter: 500, max_leaf_nodes: 31, min_samples_leaf: 40}
+
+saidas:
+  figuras: figures
+  relatorios: reports
+  artefatos: artifacts      # modelo treinado + metadados
+  previsoes: outputs        # previsões geradas pelo comando "prever"

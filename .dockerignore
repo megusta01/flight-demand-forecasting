@@ -1,0 +1,39 @@
+.git
+.venv
+data
+artifacts
+outputs
+figures
+reports
+notebooks
+**/__pycache__
+.pytest_cache
+.ruff_cache
+
+# Credenciais e configurações locais
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Ambientes, editores e build
+venv
+env
+.idea
+.vscode
+**/*.egg-info
+**/.ipynb_checkpoints
+build
+dist
+
+# Cobertura, logs e sistema operacional
+.coverage
+.coverage.*
+htmlcov
+coverage.xml
+coverage.json
+junit.xml
+**/*.log
+.DS_Store
+Thumbs.db
+Desktop.ini
